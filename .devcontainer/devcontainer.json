@@ -1,0 +1,18 @@
+{
+    "build": { "dockerfile": "Dockerfile" },
+
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {}
+    },
+    
+    "customizations": {
+        "vscode": {
+          "extensions": [
+                "Evidence.evidence-vscode",
+                "innoverio.vscode-dbt-power-user"
+            ]
+        }
+    },
+    
+    "forwardPorts": [3000, 8080]
+}

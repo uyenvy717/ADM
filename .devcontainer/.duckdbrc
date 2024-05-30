@@ -1,0 +1,5 @@
+-- Duck head prompt
+.prompt '🦆 '
+
+install 'autocomplete';
+load 'autocomplete';
