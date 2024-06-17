@@ -1,0 +1,399 @@
+version: 2
+
+sources:
+  - name: formula1
+    description: A database containing information about Formula 1 races
+    schema: formula1
+    tables:
+      - name: circuits
+        description: Raw circuit data.
+        columns:
+          - name: name
+            description: Name of the circuit.
+            test: 
+              - not_null
+          - name: location
+            description: Location where the circuit is situated.
+            test: 
+              - not_null
+          - name: country
+            description: Country where the circuit is located.
+            test: 
+              - not_null
+          - name: latitude
+            description: Latitude coordinates of the circuit.
+            test: 
+              - not_null
+          - name: longitude
+            description: Longitude coordinates of the circuit.
+            test: 
+              - not_null
+          - name: altitude
+            description: Altitude above sea level of the circuit.
+            test: 
+              - not_null
+          - name: url
+            description: URL of the circuit's information.
+            test: 
+              - not_null
+      - name: constructor_results
+        description: Results of constructors in specific races.
+        columns:
+          - name: year
+            description: Year of the constructor's result.
+            test: 
+              - not_null
+          - name: round
+            description: Round of the constructor's result.
+            test: 
+              - not_null
+          - name: name
+            description: Name of the race.
+            test: 
+              - not_null
+          - name: date
+            description: Date of the race.
+            test: 
+              - not_null
+          - name: team
+            description: Name of the constructor's team.
+            test: 
+              - not_null
+          - name: points
+            description: Points earned by the constructor's team.
+            test: 
+              - not_null
+      - name: driver_results
+        description: Results of drivers in specific races.
+        columns:
+          - name: year
+            description: Year of the driver's result.
+            test: 
+              - not_null
+          - name: round
+            description: Round of the driver's result.
+            test: 
+              - not_null
+          - name: name
+            description: Name of the race.
+            test: 
+              - not_null
+          - name: date
+            description: Date of the race.
+            test: 
+              - not_null
+          - name: "name:1"
+            description: Name of the circuit.
+            test: 
+              - not_null
+          - name: carNumber
+            description: Number of the driver's car.
+            test: 
+              - not_null
+          - name: position
+            description: Position of the car at the end of the race.
+            test: 
+              - not_null
+          - name: points
+            description: Points earned by the driver.
+            test: 
+              - not_null
+          - name: time
+            description: Time taken by the driver to finish the race.
+            test: 
+              - not_null
+          - name: reason
+            description: Status indicating whether the driver finished or not.
+            test: 
+              - not_null
+      - name: driver_sprint_results
+        description: Results of drivers in specific sprint races.
+        columns:
+          - name: year
+            description: Year of the driver's sprint result.
+            test: 
+              - not_null
+          - name: round
+            description: Round of the driver's sprint result.
+            test: 
+              - not_null
+          - name: name
+            description: Name of the sprint race.
+            test: 
+              - not_null
+          - name: date
+            description: Date of the sprint.
+            test: 
+              - not_null
+          - name: "name:1"
+            description: Name of the circuit where the sprint race took place.
+            test: 
+              - not_null
+          - name: carNumber
+            description: Number of the driver's car.
+            test: 
+              - not_null
+          - name: position
+            description: Position of the car at the end of the sprint.
+            test: 
+              - not_null
+          - name: points
+            description: Points earned by the driver in the sprint race.
+            test: 
+              - not_null
+          - name: time
+            description: Time taken by the driver to finish the sprint.
+            test: 
+              - not_null
+          - name: reason
+            description: Status indicating whether the driver finished the sprint race or not.
+            test: 
+              - not_null
+      - name: lap_times
+        description: Lap times recorded during races.
+        columns:
+          - name: date
+            description: Date of the lap.
+            test: 
+              - not_null
+          - name: carNumber
+            description: Number of the car.
+            test: 
+              - not_null
+          - name: lap
+            description: Name of the lap.
+            test: 
+              - not_null
+          - name: position
+            description: Position of the car at the end of the lap.
+            test: 
+              - not_null
+          - name: time
+            description: Time taken to complete the lap.
+            test: 
+              - not_null
+          - name: milliseconds
+            description: Time taken to complete the lap in milliseconds.
+            test: 
+              - not_null
+      - name: teams
+        description: Information about Formula 1 teams.
+        columns:
+            - name: id
+              description: Id of the team.
+              test: 
+                - not_null
+            - name: name
+              description: Name of the team.
+              test: 
+                - not_null
+            - name: nationality
+              description: Nationality of the team.
+              test: 
+                - not_null
+            - name: url
+              description: Wiki url of the team.
+              test: 
+                - not_null
+      - name: drivers
+        description: Information about Formula 1 drivers.
+        columns:
+            - name: id
+              description: Name of the driver.
+              test: 
+                - not_null
+            - name: number
+              description: Car number of the driver.
+              test: 
+                - not_null
+            - name: code
+              test: 
+                - not_null
+            - name: forename
+              description: Forename of the driver.
+              test: 
+                - not_null
+            - name: surname
+              description: Surname of the driver.
+              test: 
+                - not_null
+            - name: dob
+              description: Date of birth of the driver.
+              test: 
+                - not_null
+            - name: nationality
+              description: Nationality of the driver.
+              test: 
+                - not_null
+            - name: url
+              description: Wiki url of the driver.
+              test: 
+                - not_null
+      - name: laps
+        description: Lap details during races.
+        columns:
+          - name: Time
+            description: Time taken to finish the lap.
+            test: 
+              - not_null
+          - name: LapTime
+            description: Total time taken to finish the lap.
+            test: 
+              - not_null
+          - name: DriverNumber
+            test: 
+              - not_null
+          - name: LapNumber
+            description: Number of the lap.
+            test: 
+              - not_null
+          - name: PitOutTime
+            description: Time at which the car exited the pit.
+            test: 
+              - not_null
+          - name: PitInTime
+            description: Time at which the car entered the pit.
+            test: 
+              - not_null
+          - name: Sector1Time
+            description: Time taken for sector 1 of the lap.
+            test: 
+              - not_null
+          - name: Sector2Time
+            description: Time taken for sector 2 of the lap.
+            test: 
+              - not_null
+          - name: Sector3Time
+            description: Time taken for sector 3 of the lap.
+            test: 
+              - not_null
+          - name: SpeedI1
+            description: Speed in sector 1 of the lap.
+            test: 
+              - not_null
+          - name: SpeedI2
+            description: Speed in sector 2 of the lap.
+            test: 
+              - not_null
+          - name: SpeedFL
+            test: 
+              - not_null
+          - name: SpeedST
+            test: 
+              - not_null
+          - name: Compound
+            description: Type of tire compound used during the lap.
+            test: 
+              - not_null
+          - name: TypeLife
+            description: Remaining tire life during the lap.
+            test: 
+              - not_null
+      - name: racecontrol
+        description: A database containing information about Formula 1 races
+        columns:
+          - name: line_content
+            description: Time of the control event.
+            test: 
+              - not_null
+          - name: category
+            description: Details about the control event.
+            test: 
+              - not_null
+      - name: weather
+        description: Weather conditions recorded during races.
+        columns:
+          - name: Time
+            description: Time of the weather recording.
+            test: 
+              - not_null
+          - name: AirTemp
+            description: Air temperature during the recording.
+            test: 
+              - not_null
+          - name: Humidity
+            description: Humidity during the recording.
+            test: 
+              - not_null
+          - name: Pressure
+            description: Air pressure during the recording.
+            test: 
+              - not_null
+          - name: Rainfall
+            description: Amount of rainfall during the recording.
+            test: 
+              - not_null
+          - name: TrackTemp
+            description: Track temperature during the recording.
+            test: 
+              - not_null
+          - name: WindDirection
+            description: Wind direction during the recording.
+            test: 
+              - not_null
+          - name: WindSpeed
+            description: Wind speed during the recording.
+            test: 
+              - not_null
+      - name: car_data
+        description: Telemetry data recorded from cars during races.
+        columns:
+          - name: Date
+            description: Date of the telemetry data.
+            test: 
+              - not_null
+          - name: RPM
+            description: Engine revolutions per minute.
+            test: 
+              - not_null
+          - name: Speed
+            description: Car speed.
+            test: 
+              - not_null
+          - name: nGear
+            description: Gear number.
+            test: 
+              - not_null
+          - name: Throttle
+            description: Throttle position.
+            test: 
+              - not_null
+          - name: Break
+            description: Brake pressure.
+            test: 
+              - not_null
+          - name: Time
+            description: Time taken to complete the lap.
+            test: 
+              - not_null
+          - name: DriverNumber
+            description: Driver number.
+            test: 
+              - not_null
+      - name: car_positions
+        description: Car positions recorded during races.
+        columns:
+          - name: Date
+            description: Date of the position data.
+            test: 
+              - not_null
+          - name: Time
+            description: Time taken to complete the lap.
+            test: 
+              - not_null
+          - name: "X"
+            description: X-coordinate position of the car.
+            test: 
+              - not_null
+          - name: "Y"
+            description: Y-coordinate position of the car.
+            test: 
+              - not_null
+          - name: "Z"
+            description: Z-coordinate position of the car.
+            test: 
+              - not_null
+          - name: DriverNumber
+            description: Driver number.
+            test: 
+              - not_null
