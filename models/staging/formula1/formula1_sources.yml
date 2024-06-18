@@ -397,3 +397,22 @@ sources:
             description: Driver number.
             test: 
               - not_null
+      - name: drivers_teams
+        description: Teams and drivers participate races
+        columns:
+          - name: year
+            description: Year of race
+            test:
+              - not_null
+          - name: race_nr
+            description: Round
+            test:
+              - not_null
+          - name: driver
+            description: Name of driver
+            test:
+              - not_null
+          - name: name
+            description: Name of team
+            test:
+              - not_null

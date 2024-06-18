@@ -1,6 +1,6 @@
 select
     id as driver_id,
-    number as car_number,
+    COALESCE(number::int, 0) as car_number, -- Replace null with 0
     code as driver_code,
     CONCAT(forename, ' ', surname) as driver_name,
     forename,
